@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Liam Fiddler</title>
+        <link href="https://fonts.googleapis.com/css?family=Arvo:400,700|Source+Sans+Pro:400,900" rel="stylesheet">
+        <link rel="import" href="bower_components/polymer/polymer.html">
+        <link rel="import" href="elements/elements.html">
+        <style>
+        html,
+        body,
+        lf-app {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 400;
+            line-height: 1.3em;
+            color: #333;
+            font-size: 22px;
+            text-transform: uppercase;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        h1 {
+          font-family: 'Arvo', Times New Roman, Times, serif;
+          text-transform: none;
+          color: #111;
+          letter-spacing: .02em;
+          font-weight: 700;
+          font-size: 2.5em;
+          margin: 0 0 .3em;
+          line-height: 1.2em;
+          padding-bottom: .3em;
+          border-bottom: 2px solid #333;
+        }
+        section {
+          width: 80%;
+          max-width: 40em;
+          min-height: 60vh;
+          margin: 20vh auto;
+        }
+        .avoid-break {
+          display: inline-block;
+        }
+        a,
+        a:visited {
+          color: inherit;
+        }
+        p {
+          margin: .4em 0;
+        }
+        </style>
+    </head>
+    <body>
+        <lf-app>
+          <section>
+            <h1>
+              <lf-revealtext>
+                Hi, my name <span class="avoid-break">is Liam.</span>
+              </lf-revealtext>
+            </h1>
+            <p>
+              <lf-revealtext>
+                I'm a Sydney-based dev supported by <a href="http://mentallyfriendly.com" class="avoid-break">a great team</a>.</span>
+              </lf-revealtext>
+            </p>
+            <p>
+              <lf-revealtext>
+                I make 🔥🔥 things <span class="avoid-break">for 👌👌 people.</span>
+              </lf-revealtext>
+            </p>
+          </section>
+        </lf-app>
+        <script src="js/script.js"></script>
+    </body>
+</html>

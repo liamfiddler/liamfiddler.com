@@ -1,0 +1,59 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="elements.html">
+<dom-module id="lf-revealtext">
+	<template>
+		<style>
+			:host {
+      	display: block;
+      }
+			span {
+				display: inline-block;
+				position: relative;
+				padding: .1em;
+			}
+			#curtain {
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				width: 100%;
+				background: #d0d0d0;
+				transition: width .3s ease;
+			}
+			span[revealed] #curtain {
+				width: 0;
+			}
+		</style>
+  	<span revealed$="[[isRevealed]]">
+			<content></content>
+			<div id="curtain" style$="background-color:[[_getColor()]]"></div>
+		</span>
+	</template>
+	<script>
+		Polymer({
+			is: 'lf-revealtext',
+			properties: {
+				isRevealed: {
+					type: Boolean,
+					value: null,
+					notifies: true,
+				},
+			},
+			_getColor: function() {
+				var shades = [
+					'999',
+					'aaa',
+					'bbb',
+					'ccc',
+					'ddd',
+					'eee',
+				];
+
+				return '#' + shades[Math.floor((Math.random() * shades.length))];
+			},
+			reveal: function() {
+					this.set('isRevealed', true);
+			},
+		});
+	</script>
+</dom-module>
