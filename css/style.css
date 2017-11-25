@@ -105,8 +105,13 @@ section {
     transform: translate3d(0, 0, 0);
 }
 
+@keyframes appear {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 #intro canvas {
-    position: fixed;
+    animation: appear 1s normal forwards ease-in;
 }
 
 #milestones {
@@ -143,7 +148,7 @@ section {
     display: block;
     overflow: hidden;
     height: 0;
-    background: #1b1b1b;
+    background: #3AAFDC;
     padding-top: 5%;
 }
 
@@ -167,6 +172,18 @@ article .img-wrapper {
     margin: -1.5rem -1.5rem 1.5rem -1.5rem;
 }
 
+article:nth-child(2n - 1) .img-wrapper {
+    background-color: #ffe359;
+}
+
+article:nth-child(3n - 1) .img-wrapper {
+    background-color: #7513B8;
+}
+
+article:nth-child(4n - 1) .img-wrapper {
+    background-color: rgb(216, 147, 20);
+}
+
 article h3 {
     display: block;
     margin: 0;
@@ -183,18 +200,18 @@ time {
     color: #9f9f9f;
 }
 
-.docker,
-.mf {
+#milestones .docker,
+#milestones .mf {
     padding-top: 25%;
     background-color: #1a4172;
 }
 
-.mf {
+#milestones .mf {
     background-color: #0FDBC1;
 }
 
-.docker img,
-.mf img {
+#milestones .docker img,
+#milestones .mf img {
     top: 15%;
     left: 50%;
     width: auto;
