@@ -5,76 +5,203 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Liam Fiddler</title>
-        <link href="https://fonts.googleapis.com/css?family=Arvo:400,700|Source+Sans+Pro:400,900" rel="stylesheet">
-        <link rel="import" href="bower_components/polymer/polymer.html">
-        <link rel="import" href="elements/elements.html">
-        <style>
-        html,
-        body,
-        lf-app {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            font-family: 'Source Sans Pro', sans-serif;
-            font-weight: 400;
-            line-height: 1.3em;
-            color: #333;
-            font-size: 22px;
-            text-transform: uppercase;
-            -webkit-font-smoothing: antialiased;
-            text-rendering: optimizeLegibility;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        h1 {
-          font-family: 'Arvo', Times New Roman, Times, serif;
-          text-transform: none;
-          color: #111;
-          letter-spacing: .02em;
-          font-weight: 700;
-          font-size: 2.5em;
-          margin: 0 0 .3em;
-          line-height: 1.2em;
-          padding-bottom: .3em;
-          border-bottom: 2px solid #333;
-        }
-        section {
-          width: 80%;
-          max-width: 40em;
-          min-height: 60vh;
-          margin: 20vh auto;
-        }
-        .avoid-break {
-          display: inline-block;
-        }
-        a,
-        a:visited {
-          color: inherit;
-        }
-        p {
-          margin: .4em 0;
-        }
-        </style>
+        <link href="https://fonts.googleapis.com/css?family=Kanit:300,500,900" rel="stylesheet">        
+        <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
-        <lf-app>
-          <section>
-            <h1>
-              <lf-revealtext>
-                Hi, my name <span class="avoid-break">is Liam.</span>
-              </lf-revealtext>
-            </h1>
+        <section id="intro">
+          <h1>
+            Liam Fiddler
+          </h1>
+        </section>
+        <nav>
+          <a href="#about" class="active">About</a>
+          <a href="#milestones">Milestones</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <section id="about">
+          <div class="container">
+            <h2>
+              I help organisations engineer and build their next digital product or service.
+            </h2>
             <p>
-              <lf-revealtext>
-                I'm a Sydney-based dev supported by <a href="http://mentallyfriendly.com" class="avoid-break">a great team</a>.</span>
-              </lf-revealtext>
+              I'm Liam, a digital designer / developer with over ten years experience engineering, 
+              building, and releasing digital products. I've worked with a wide variety of 
+              organisations &mdash; from small startups to established, 
+              multi-national businesses.
             </p>
-            <p>
-              <lf-revealtext>
-                I make 🔥🔥 things <span class="avoid-break">for 👌👌 people.</span>
-              </lf-revealtext>
-            </p>
+          </div>
+        </section>
+        <section id="milestones">
+            <div class="container">
+              <article>
+                <div class="img-wrapper" style="padding-top:45%">
+                  <picture>
+                    <source srcset="resources/polymersyd-2.webp" type="image/webp">
+                    <source srcset="resources/polymersyd-2.jpg" type="image/jpeg"> 
+                    <img src="resources/polymersyd-2.jpg" alt="Liam presenting to a crowd">
+                  </picture>
+                </div>
+                <h3>Public Speaking - PolymerSyd</h3>
+                <time datetime="2017-09-20 18:00">Late 2017</time>
+                <p>
+                  I presented a talk at the September 2017 PolymerSyd meetup. The talk detailed 
+                  my experiments with the preview version of Polymer's syntactic sugar for 
+                  Web Components.
+                </p>
+                <a href="https://docs.google.com/presentation/d/1HIm8vCIoJps9GKZXHARtgvzIra6vL4n0eS8Bms8a8hE/edit#slide=id.g200453d3a7_0_10">
+                  View the presentation online &rarr;
+                </a><br>
+                <a href="resources/exploring-polymer-3.pdf">
+                  Download the slides &amp; notes &rarr;
+                </a><br>
+                <a href="https://github.com/liamfiddler/polymer3-talk">
+                  Explore the working files &rarr;
+                </a>
+              </article>
+              <article>
+                <div class="img-wrapper" style="padding-top:80%">
+                  <picture>
+                    <source srcset="resources/polymersyd-1.webp" type="image/webp">
+                    <source srcset="resources/polymersyd-1.jpg" type="image/jpeg"> 
+                    <img src="resources/polymersyd-1.jpg" alt="Google's Polymer Team">
+                  </picture>
+                </div>
+                <h3>Launched PolymerSyd</h3>
+                <time datetime="2017-03-01 18:00">Early 2017</time>
+                <p>
+                  I co-founded PolymerSyd &mdash; a quarterly meetup group 
+                  for <a href="https://www.polymer-project.org/">Polymer</a> 
+                  &amp; Web Component enthusiasts. I also had the 
+                  honour of being a speaker at the first event alongside 
+                  representatives from Mentally Friendly and Google.
+                </p>
+                <a href="https://www.meetup.com/PolymerSyd/">
+                  Join the meetup &rarr;
+                </a>
+              </article>
+              <article>
+                <div class="img-wrapper docker">
+                  <img src="resources/docker.svg" alt="The Docker logo">
+                </div>
+                <h3>Released liamfiddler/docker-laravel</h3>
+                <time datetime="2015-09-29 12:00">Late 2015</time>
+                <p>
+                  I released an Ubuntu Docker container for Laravel web applications 
+                  to GitHub &amp; Docker Hub for public use. It generated a bit of traction 
+                  and reached a few thousand installs, but was eventually made redundant by 
+                  <a href="https://vessel.shippingdocker.com/">Vessel</a>.
+                </p>
+                <a href="https://hub.docker.com/r/liamfiddler/docker-laravel/">
+                  View on Docker Hub &rarr;
+                </a><br>
+                <a href="https://github.com/liamfiddler/docker-laravel">
+                  View on GitHub &rarr;
+                </a>
+              </article>
+              <article>
+                <div class="img-wrapper mf">
+                  <img src="resources/mentally-friendly.svg" alt="The Mentally Friendly logo">
+                </div>
+                <h3>Joined Mentally Friendly</h3>
+                <time datetime="2015-02-11 09:00">Early 2015</time>
+                <p>
+                  Mentally Friendly are a digital product studio that help businesses 
+                  tackle complex challenges.
+                </p>
+                <a href="https://mentallyfriendly.com/">
+                  View their website &rarr;
+                </a>
+              </article>
+              <article>
+                <div class="img-wrapper" style="padding-top:62%">
+                  <picture>
+                    <source srcset="resources/animal-studies.webp" type="image/webp">
+                    <source srcset="resources/animal-studies.jpg" type="image/jpeg"> 
+                    <img src="resources/animal-studies.jpg" alt="The first issue of the Animal Studies Journal">
+                  </picture>
+                </div>
+                <h3>Animal Studies Journal</h3>
+                <time datetime="2012-11-01 09:00">Late 2012</time>
+                <p>
+                  In 2012 I was invited to help design and publish the first issue of 
+                  the Animal Studies Journal, a fully-refereed (double-blind peer reviewed) 
+                  journal highlighting current research in human-animal studies. More 
+                  recent issues have moved to a digital format and I'm proud to continue 
+                  my involvement with the publication to this day.
+                </p>
+                <a href="http://ro.uow.edu.au/asj/">
+                  Visit the Animal Studies Journal website &rarr;
+                </a>
+              </article>
+              <article>
+                <div class="img-wrapper" style="padding-top:58%">
+                  <picture>
+                    <source srcset="resources/interpolated-identities.webp" type="image/webp">
+                    <source srcset="resources/interpolated-identities.jpg" type="image/jpeg"> 
+                    <img src="resources/interpolated-identities.jpg" alt="Liam's thesis on a bookshelf">
+                  </picture>
+                </div>
+                <h3>Interpolated Identities: Creating a Complex Experiential Commitment to the Virtual</h3>
+                <time datetime="2009-11-01 09:00">Late 2009</time>
+                <p>
+                  To fulfil the written component of a BCA (honours) course I 
+                  wrote a thesis about virtual worlds, gamification, &amp; the role of 
+                  designers and developers in creating hyperreality.
+                </p>
+                <a href="resources/interpolated-identities.pdf">
+                  Read the thesis &rarr;
+                </a>
+              </article>
+              <article>
+                <div class="img-wrapper" style="padding-top:75%">
+                  <picture>
+                    <source srcset="resources/tactilis-mensa.webp" type="image/webp">
+                    <source srcset="resources/tactilis-mensa.jpg" type="image/jpeg"> 
+                    <img src="resources/tactilis-mensa.jpg" alt="Operating the Tactilis Mensa">
+                  </picture>
+                </div>
+                <h3>Tactilis Mensa</h3>
+                <time datetime="2009-11-01 09:00">Late 2009</time>
+                <p>
+                  A prototype for an alternative art collection browsing system. In order 
+                  to fulfil the practical component of a 
+                  <abbr title="Bachelor of Creative Arts">BCA</abbr> Honours course I 
+                  built a table-sized touch screen device (using a projector, a webcam, 
+                  a low-power PC, lots of MDF, and infrared light), then designed a 
+                  prototype interface for navigating the 
+                  <abbr title="University of Wollongong">UoW</abbr> Art Collection. This 
+                  work was on display as part of the  
+                  <a href="https://lha.uow.edu.au/taem/exhibitions/UOW067945.html">
+                    Digital Natives art exhibition
+                  </a>.
+                </p>
+                <a href="resources/tactilis-mensa.pdf">
+                  Read the production notes &rarr;
+                </a>
+              </article>
+            </div>
           </section>
-        </lf-app>
+        <section id="contact">
+            <div class="container">
+              <h2>
+                Coffee? Beer?
+              </h2>
+              <p>
+                I'd love to catch up and chat about your next big project, what digital
+                prototyping means to you, which comic superhero is due for a good movie 
+                adaptation (spoiler; it's 
+                <a href="http://www.dccomics.com/characters/nightwing">Nightwing</a>), 
+                the future of virtual reality, 
+                <del>if</del> <em>when</em> the singularity will occur, 
+                or anything else that takes your fancy!
+              </p>
+              <a href="mailto:design@liamfiddler.com" class="button">
+                Send me an email &rarr;
+              </a>
+            </div>
+          </section>
+        <script src="https://cdn.jsdelivr.net/npm/three@0.88.0/build/three.min.js"></script>
         <script src="js/script.js"></script>
     </body>
 </html>
