@@ -23,7 +23,8 @@
 
 	lazyScr.src = 'https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/' + ver + '/lazyload.min.js';
   lazyScr.async = true;
-  lazyScr.onload = function() { console.log('got lazy load!') }
+
+  window.lazyLoadOptions = {};
   document.body.appendChild(lazyScr);
 }());
 
