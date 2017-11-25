@@ -5,76 +5,101 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Liam Fiddler</title>
-        <link href="https://fonts.googleapis.com/css?family=Arvo:400,700|Source+Sans+Pro:400,900" rel="stylesheet">
-        <link rel="import" href="bower_components/polymer/polymer.html">
-        <link rel="import" href="elements/elements.html">
-        <style>
-        html,
-        body,
-        lf-app {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            font-family: 'Source Sans Pro', sans-serif;
-            font-weight: 400;
-            line-height: 1.3em;
-            color: #333;
-            font-size: 22px;
-            text-transform: uppercase;
-            -webkit-font-smoothing: antialiased;
-            text-rendering: optimizeLegibility;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        h1 {
-          font-family: 'Arvo', Times New Roman, Times, serif;
-          text-transform: none;
-          color: #111;
-          letter-spacing: .02em;
-          font-weight: 700;
-          font-size: 2.5em;
-          margin: 0 0 .3em;
-          line-height: 1.2em;
-          padding-bottom: .3em;
-          border-bottom: 2px solid #333;
-        }
-        section {
-          width: 80%;
-          max-width: 40em;
-          min-height: 60vh;
-          margin: 20vh auto;
-        }
-        .avoid-break {
-          display: inline-block;
-        }
-        a,
-        a:visited {
-          color: inherit;
-        }
-        p {
-          margin: .4em 0;
-        }
-        </style>
+        <link href="https://fonts.googleapis.com/css?family=Kanit:300,500,900" rel="stylesheet">        
+        <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
-        <lf-app>
-          <section>
-            <h1>
-              <lf-revealtext>
-                Hi, my name <span class="avoid-break">is Liam.</span>
-              </lf-revealtext>
-            </h1>
+        <section id="intro">
+          <h1>
+            Liam Fiddler
+          </h1>
+        </section>
+        <nav>
+          <a href="#about" class="active">About</a>
+          <a href="#what-i-do">Work, Speaking & Events</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <section id="about">
+          <div class="container">
+            <h2>
+              I help organisations engineer and build their next digital product or service.
+            </h2>
             <p>
-              <lf-revealtext>
-                I'm a Sydney-based dev supported by <a href="http://mentallyfriendly.com" class="avoid-break">a great team</a>.</span>
-              </lf-revealtext>
+              I'm Liam, a digital designer / developer with over ten years experience engineering, 
+              building, and releasing digital products. I've worked with a wide variety of 
+              organisations &mdash; from small startups to established, 
+              multi-national businesses.
             </p>
-            <p>
-              <lf-revealtext>
-                I make 🔥🔥 things <span class="avoid-break">for 👌👌 people.</span>
-              </lf-revealtext>
-            </p>
+          </div>
+        </section>
+        <section id="what-i-do">
+            <div class="container">
+              <article>
+                <div class="img-wrapper" style="padding-top:5%">
+                  <!--<img src="resources/polymersyd-1.jpg" alt="The Polymer Team from Google">-->
+                </div>
+                <h3>Public Speaking - PolymerSyd</h3>
+                <time datetime="2017-09-20 18:00">Late 2017</time>
+                <p>
+                  I presented a talk at the PolymerSyd meetup in September. The talk detailed 
+                  my experiments with the preview version of Polymer's syntactic sugar for 
+                  Web Components.
+                </p>
+                <a href="https://github.com/liamfiddler/polymer3-talk">
+                  View the working files &rarr;
+                </a>
+              </article>
+              <article>
+                <div class="img-wrapper" style="padding-top:80%">
+                  <img src="resources/polymersyd-1.jpg" alt="The Polymer Team from Google">
+                </div>
+                <h3>Founded PolymerSyd</h3>
+                <time datetime="2017-03-01 18:00">Early 2017</time>
+                <p>
+                  I co-founded PolymerSyd &mdash; a quarterly meetup group 
+                  for Polymer &amp; Web Component enthusiasts. I also had the 
+                  honour of being a speaker at the first event alongside 
+                  representatives from Mentally Friendly and Google.
+                </p>
+                <a href="https://www.meetup.com/PolymerSyd/">
+                  Join the meetup &rarr;
+                </a>
+              </article>
+              <article>
+                <div class="img-wrapper" style="padding-top:58%">
+                  <img src="resources/thesis.jpg" alt="Liam's thesis on a bookshelf">
+                </div>
+                <h3>Academic Thesis</h3>
+                <time datetime="2017-03-01 18:00">Late 2009</time>
+                <p>
+                  To fulfil the written component of a BCA (honours) course I 
+                  wrote a thesis about virtual worlds, gamification, &amp; the role of 
+                  designers and developers in creation.
+                </p>
+                <a href="#">
+                  Read the thesis &rarr;
+                </a>
+              </article>
+            </div>
           </section>
-        </lf-app>
+        <section id="contact">
+            <div class="container">
+              <h2>
+                Coffee? Beer?
+              </h2>
+              <p>
+                I'd love to catch up and chat about your next big project, what career 
+                progression means to you, which comic superhero is due for a good movie 
+                adaptation (spoiler; it's Nightwing), when the singularity will occur, 
+                the future of internet banking, 
+                or anything else that takes your fancy!
+              </p>
+              <a href="mailto:design@liamfiddler.com" class="button">
+                Send me an email &rarr;
+              </a>
+            </div>
+          </section>
+        <script src="https://cdn.jsdelivr.net/npm/three@0.88.0/build/three.min.js"></script>
         <script src="js/script.js"></script>
     </body>
 </html>
