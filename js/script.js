@@ -1,5 +1,7 @@
 'use strict';
 
+// rotating cube
+
 var camera, scene, renderer;
 var geometry, material, mesh;
 
@@ -41,6 +43,8 @@ function animate() {
 	renderer.render(scene, camera);
 }
 
+// smooth scroll nav
+
 var navLinks = document.querySelectorAll('nav a');
 
 navLinks.forEach(function(navLink) {
@@ -53,3 +57,18 @@ navLinks.forEach(function(navLink) {
     });
   });
 });
+
+// lazy load images
+
+(function(w, d) {
+  var s = d.createElement('script');
+  var v = !('IntersectionObserver' in w) ? '8.5.2' : '10.3.5';
+
+	s.src = 'https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/' + v + '/lazyload.min.js';
+  s.async = true;
+
+  w.lazyLoadOptions = {};
+
+	d.body.appendChild(s);
+}(window, document));
+
