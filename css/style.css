@@ -181,7 +181,7 @@ article:nth-child(3n - 1) .img-wrapper {
 }
 
 article:nth-child(4n - 1) .img-wrapper {
-    background-color: rgb(216, 147, 20);
+    background-color: #d89314;
 }
 
 article h3 {
@@ -200,21 +200,23 @@ time {
     color: #9f9f9f;
 }
 
-#milestones .docker,
-#milestones .mf {
+#milestones .icon {
     padding-top: 25%;
     background-color: #1a4172;
+}
+
+#milestones .icon img {
+    top: 15%;
+    left: 50%;
+    width: auto;
+    height: 70%;
+    transform: translateX(-50%);
 }
 
 #milestones .mf {
     background-color: #0FDBC1;
 }
 
-#milestones .docker img,
-#milestones .mf img {
-    top: 15%;
-    left: 50%;
-    width: auto;
-    height: 70%;
-    transform: translateX(-50%);
+#milestones .polymer {
+    background-color: #7da2b1;
 }
