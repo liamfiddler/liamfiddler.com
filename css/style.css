@@ -14,10 +14,16 @@ body {
     line-height: 1.3em;
     color: #1b1b1b;
     background: #ffe359;
-    font-size: 22px;
+    font-size: 16px;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     -moz-osx-font-smoothing: grayscale;
+}
+
+@media screen and (min-width: 1300px) {
+    html, body {
+        font-size: 22px;
+    }
 }
 
 a,
@@ -27,7 +33,7 @@ a:visited {
 }
 
 h1 {
-    font-size: 8em;
+    font-size: 5em;
     line-height: .8;
     font-weight: 900;
     position: absolute;
@@ -37,6 +43,12 @@ h1 {
     overflow: visible;
     margin: 0;
     z-index: 2;
+}
+
+@media screen and (min-width: 600px) {
+    h1 {
+        font-size: 8em;
+    }
 }
 
 h2 {
@@ -105,22 +117,29 @@ section {
     transform: translate3d(0, 0, 0);
 }
 
+@keyframes appear {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 #intro canvas {
-    position: fixed;
+    animation: appear 1s normal forwards ease-in;
 }
 
 #milestones {
     background-color: #f0f0f0;
 }
 
-#milestones .container {
-    max-width: 60em;
-    -webkit-column-count: 2;
-    -webkit-column-gap: 2rem;
-    -moz-column-count: 2;
-    -moz-column-gap: 2rem;
-    column-count: 2;
-    column-gap: 2rem;
+@media screen and (min-width: 900px) {
+    #milestones .container {
+        max-width: 60em;
+        -webkit-column-count: 2;
+        -webkit-column-gap: 2rem;
+        -moz-column-count: 2;
+        -moz-column-gap: 2rem;
+        column-count: 2;
+        column-gap: 2rem;
+    }
 }
 
 #contact {
@@ -143,7 +162,7 @@ section {
     display: block;
     overflow: hidden;
     height: 0;
-    background: #1b1b1b;
+    background: #3AAFDC;
     padding-top: 5%;
 }
 
@@ -167,6 +186,18 @@ article .img-wrapper {
     margin: -1.5rem -1.5rem 1.5rem -1.5rem;
 }
 
+article:nth-child(2n - 1) .img-wrapper {
+    background-color: #ffe359;
+}
+
+article:nth-child(3n - 1) .img-wrapper {
+    background-color: #7513B8;
+}
+
+article:nth-child(4n - 1) .img-wrapper {
+    background-color: #d89314;
+}
+
 article h3 {
     display: block;
     margin: 0;
@@ -183,21 +214,23 @@ time {
     color: #9f9f9f;
 }
 
-.docker,
-.mf {
+#milestones .icon {
     padding-top: 25%;
     background-color: #1a4172;
 }
 
-.mf {
-    background-color: #0FDBC1;
-}
-
-.docker img,
-.mf img {
+#milestones .icon img {
     top: 15%;
     left: 50%;
     width: auto;
     height: 70%;
     transform: translateX(-50%);
+}
+
+#milestones .mf {
+    background-color: #0FDBC1;
+}
+
+#milestones .polymer {
+    background-color: #7da2b1;
 }
