@@ -3,8 +3,12 @@
 // smooth scroll nav
 (function() {
   var navLinks = document.querySelectorAll('nav a');
+  var navLink = null;
+  var numNavLinks = navLinks.length;
 
-  navLinks.forEach(function(navLink) {
+  for(var i = 0; i < numNavLinks; i++) {
+    navLink = navLinks[i];
+
     navLink.addEventListener('click', function(e) {
       e.preventDefault();
       var id = e.target.href.split('#').pop();
@@ -13,7 +17,7 @@
         behavior: 'smooth',
       });
     });
-  });
+  }
 }());
 
 // lazy load images
