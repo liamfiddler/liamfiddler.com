@@ -108,7 +108,6 @@ section {
 }
 
 #intro {
-    width: 100vw;
     height: calc(100vh - 5rem);
     padding: 0;
     position: relative;
