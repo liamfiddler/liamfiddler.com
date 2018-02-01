@@ -214,15 +214,15 @@ time {
 }
 
 #milestones .icon {
-    padding-top: 25%;
+    padding-top: 35%;
     background-color: #1a4172;
 }
 
 #milestones .icon img {
-    top: 15%;
+    top: 30%;
     left: 50%;
     width: auto;
-    height: 70%;
+    height: 40%;
     transform: translateX(-50%);
 }
 
