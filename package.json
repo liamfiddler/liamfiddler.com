@@ -12,6 +12,7 @@
     "@11ty/eleventy": "^0.8.3",
     "@11ty/eleventy-plugin-rss": "^1.0.6",
     "@11ty/eleventy-plugin-syntaxhighlight": "^2.0.1",
+    "eleventy-plugin-typeset": "git+https://github.com/liamfiddler/eleventy-plugin-typeset.git",
     "luxon": "^1.12.0",
     "markdown-it": "^8.4.2",
     "markdown-it-anchor": "^5.0.2"
