@@ -16,7 +16,7 @@
 }
 
 html {
-  background-color: var(--darkgray);
+  background-color: var(--navy);
   padding: var(--pageborder);
   margin: 0;
 }
@@ -27,9 +27,25 @@ body {
   padding: 0;
   margin: 0;
   font-family: sans-serif;
-  color: var(--darkgray);
+  color: var(--navy);
   background-color: var(--white);
   min-height: calc(100vh - var(--pageborder) * 2);
+  font-size: 0.875rem;
+  line-height: 1.2em;
+}
+
+@media screen and (min-width: 20rem) {
+  body {
+    font-size: calc(0.875rem + 0.5 * ((100vw - 20rem) / 60));
+    line-height: calc(1.2em + 0.6 * ((100vw - 20em) / 60));
+  }
+}
+
+@media screen and (min-width: 80rem) {
+  body {
+    font-size: 1.375rem;
+    line-height: 1.8em;
+  }
 }
 
 p:last-child {
@@ -132,10 +148,17 @@ pre {
 
 /* Header */
 .home {
-  padding: 0 1rem;
+  padding: 0.5rem 1rem;
   float: left;
-  margin: 1rem 0; /* 16px /16 */
-  font-size: 1em; /* 16px /16 */
+  margin: 0;
+  font-size: 1em;
+  font-weight: normal;
+  background: var(--navy);
+  color: var(--white);
+}
+.home a,
+.home a:visited {
+  color: inherit;
 }
 .home :link:not(:hover) {
   text-decoration: none;
