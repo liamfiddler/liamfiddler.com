@@ -1,0 +1,20 @@
+---
+title: Side projects
+description: Side projects
+layout: layouts/page.njk
+---
+<section class="contain">
+  <h1>Side projects</h1>
+  <ul class="projects">
+    {%- for project in projects -%}
+      <li>
+        <a href="{{ project.url }}">
+          {{ project.title }}
+        </a><br />
+        <span class="metadata">
+          {{ project.description }}
+        </span>
+      </li>
+    {%- endfor -%}
+  </ul>
+</section>

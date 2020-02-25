@@ -1,0 +1,16 @@
+---
+title: Search
+description: Search this site.
+layout: layouts/page.njk
+---
+<search-form>
+  <section class="contain">
+    <h1>Search</h1>
+      <form action="https://google.com.au/search" method="get" id="search-form">
+        <input type="hidden" name="q" id="q" value="site:https://liamfiddler.com">
+        <input type="text" name="q" id="search-value" autofocus>
+        <button type="submit" class="submit">Search</button>
+      </form>
+      <div id="search-results"></div>
+  </section>
+</search-form>

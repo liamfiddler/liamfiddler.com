@@ -1,0 +1,61 @@
+---
+title: Liam Fiddler - digital designer / developer
+description: I design + build digital products & services.
+layout: layouts/page.njk
+---
+<div id="homepage">
+  <section class="contain">
+    <h1>I design + build digital products &amp;&nbsp;services.</h1>
+    <p class="large">
+      I'm Liam, a digital designer / developer with over ten years experience engineering, building, and releasing digital products.
+      I work with a wide variety of organisations &mdash; from small startups to established, multi-national businesses.
+    </p>
+    <p>
+      As tech lead at <a href="https://mentallyfriendly.com">Mentally Friendly</a>
+      (a design and innovation studio in Sydney, Australia)
+      I'm currently prototyping the future of an Australian neo-bank.
+      Before that I was designing a new approach to superannuation with a multi-national investment company.
+    </p>
+  </section>
+  <section class="projects-wrapper">
+    <div class="contain">
+      <h2>Side projects</h2>
+      <ul class="projects">
+        {%- for project in projects -%}
+          {% if loop.index0 < 3 %}
+            <li>
+              <a href="{{ project.url }}">
+                {{ project.title }}
+              </a><br />
+              <span class="metadata">
+                {{ project.description }}
+              </span>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+      <a href="/projects/" class="btn">All side projects &rarr;</a>
+    </div>
+  </section>
+  <section class="contain">
+    <h2>Recent posts</h2>
+    <ol class="posts">
+      {%- for page in collections.post | reverse -%}
+        {% if loop.index0 < 3 %}
+          <li>
+            <a href="{{ page.url }}">
+              {{ page.data.title }}
+            </a><br />
+            <span class="metadata">
+              <time datetime="{{ page.date | dateDisplay('y-MM-dd') }}">
+                {{ page.date | dateDisplay("LLLL d, y") }}
+              </time> &mdash;
+              {{ page.templateContent | readingTime }} minute read
+            </span>
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ol>
+    <a href="/posts/" class="btn">Older posts &rarr;</a>
+  </section>
+</div>

@@ -1,0 +1,18 @@
+---
+eleventyExcludeFromCollections: true
+permalink: search.json
+---
+[
+{%- for page in collections.post -%}
+  {
+    "url": "{{ page.url }}",
+    "title": "{{ page.data.title }}",
+    "index": "{{ page.templateContent | uniqueWords }}",
+    "tags": [
+      {%- for tag in page.data.tags -%}
+        "{{ tag }}"{% if not loop.last %},{% endif %}
+      {%- endfor -%}
+    ]
+  }{% if not loop.last %},{% endif %}
+{%- endfor -%}
+]

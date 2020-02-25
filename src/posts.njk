@@ -1,0 +1,23 @@
+---
+title: Posts
+description: Posts
+layout: layouts/page.njk
+---
+<section class="contain">
+  <h1>Posts</h1>
+  <ol class="posts">
+    {%- for page in collections.post | reverse -%}
+      <li>
+        <a href="{{ page.url }}">
+          {{ page.data.title }}
+        </a><br />
+        <span class="metadata">
+          <time datetime="{{ page.date | dateDisplay('y-MM-dd') }}">
+            {{ page.date | dateDisplay("LLLL d, y") }}
+          </time> &mdash;
+          {{ page.templateContent | readingTime }} minute read
+        </span>
+      </li>
+    {%- endfor -%}
+  </ol>
+</section>

@@ -1,0 +1,28 @@
+{% extends 'layouts/base.njk' %}
+
+{% block content %}
+  <article class="contain">
+    <h1>{{ title }}</h1>
+    <p class="metadata">
+      {% if date %}
+        Published
+        <time datetime="{{ date | dateDisplay('y-MM-dd') }}">
+          {{ date | dateDisplay('LLLL d, y') }}
+        </time>
+        &mdash;
+      {% endif %}
+      <span>{{ content | readingTime }} minute read</span>
+      {% if tags %}
+        <br>
+        Tagged as:
+        {% for tag in tags %}
+          <a href="#" class="tag">{{ tag }}</a>
+        {% endfor %}
+      {% endif %}
+    </p>
+    <hr />
+    {{ content | safe }}
+  </article>
+{% endblock %}
+
+{{ content | safe }}

@@ -2,24 +2,31 @@
   "name": "liamfiddler.com",
   "version": "3.0.0",
   "description": "liamfiddler.com",
+  "author": "@liamfiddler",
+  "private": true,
   "scripts": {
-    "build": "npx eleventy",
-    "watch": "npx eleventy --watch",
-    "start": "npx eleventy --serve",
-    "debug": "DEBUG=* npx eleventy"
+    "start": "npx @11ty/eleventy --serve",
+    "build": "npx @11ty/eleventy",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^0.8.3",
-    "@11ty/eleventy-plugin-rss": "^1.0.6",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^2.0.1",
-    "eleventy-plugin-typeset": "git+https://github.com/liamfiddler/eleventy-plugin-typeset.git",
-    "luxon": "^1.12.0",
-    "markdown-it": "^8.4.2",
-    "markdown-it-anchor": "^5.0.2"
+    "@11ty/eleventy": "^0.9.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^2.0.3",
+    "autoprefixer": "^9.7.4",
+    "html2plaintext": "^2.1.2",
+    "luxon": "^1.21.3",
+    "postcss": "^7.0.26",
+    "precss": "^4.0.0",
+    "stopword": "^0.3.4"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/liamfiddler/liamfiddler.com.git"
-  },
-  "author": "@liamfiddler"
+  "browserslist": [
+    "> 1.5%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "dependencies": {
+    "@swup/preload-plugin": "^1.0.3",
+    "fuse.js": "^3.4.6",
+    "swup": "^2.0.8"
+  }
 }

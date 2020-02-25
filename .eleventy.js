@@ -1,100 +1,42 @@
-const { DateTime } = require("luxon");
-const fs = require("fs");
-const pluginRss = require("@11ty/eleventy-plugin-rss");
-const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-const typesetPlugin = require('eleventy-plugin-typeset');
+const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
+const { DateTime } = require('luxon');
+const { removeStopwords } = require('stopword');
+const htmlToPlaintext = require('html2plaintext');
 
-module.exports = function(eleventyConfig) {
-  eleventyConfig.addPlugin(
-    typesetPlugin({
-      only: '.post-content',
-    }),
-  );
+const dateDisplayFilter = (dateObj, format = 'LLL d, y') =>
+  DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat(format);
 
-  eleventyConfig.addPlugin(pluginRss);
-  eleventyConfig.addPlugin(pluginSyntaxHighlight);
-  eleventyConfig.setDataDeepMerge(true);
+const uniqueWordsFilter = (text) => {
+  const words = htmlToPlaintext(text)
+    .toLowerCase()
+    .split(' ');
+  const uniqueWords = removeStopwords([...new Set(words)]).join(' ');
+  return uniqueWords.replace(/\.|\,|\?|-|—|\n/g, '').replace(/[ ]{2,}/g, ' ');
+};
 
-  eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
+const readingTimeFilter = (text) => {
+  const wordsPerMinute = 200;
+  const numberOfWords = text.split(/\s/g).length;
+  return Math.ceil(numberOfWords / wordsPerMinute);
+};
 
-  eleventyConfig.addFilter("readableDate", dateObj => {
-    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("dd LLL yyyy");
+module.exports = (config) => {
+  config.addPassthroughCopy({
+    'src/resources': 'resources',
+    'node_modules/swup/dist/swup.min.js': 'resources/libs/swup.min.js',
+    'node_modules/@swup/preload-plugin/dist/SwupPreloadPlugin.min.js': 'resources/libs/SwupPreloadPlugin.min.js',
+    'node_modules/fuse.js/dist/fuse.js': 'resources/libs/fuse.js',
   });
 
-  // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
-  eleventyConfig.addFilter('htmlDateString', (dateObj) => {
-    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
-  });
-
-  // Get the first `n` elements of a collection.
-  eleventyConfig.addFilter("head", (array, n) => {
-    if( n < 0 ) {
-      return array.slice(n);
-    }
-
-    return array.slice(0, n);
-  });
-
-  eleventyConfig.addCollection("tagList", require("./_11ty/getTagList"));
-
-  eleventyConfig.addPassthroughCopy("img");
-  eleventyConfig.addPassthroughCopy("css");
-
-  /* Markdown Plugins */
-  let markdownIt = require("markdown-it");
-  let markdownItAnchor = require("markdown-it-anchor");
-  let options = {
-    html: true,
-    breaks: true,
-    linkify: true
-  };
-  let opts = {
-    permalink: true,
-    permalinkClass: "direct-link",
-    permalinkSymbol: "#"
-  };
-
-  eleventyConfig.setLibrary("md", markdownIt(options)
-    .use(markdownItAnchor, opts)
-  );
-
-  eleventyConfig.setBrowserSyncConfig({
-    callbacks: {
-      ready: function(err, browserSync) {
-        const content_404 = fs.readFileSync('_site/404.html');
-
-        browserSync.addMiddleware("*", (req, res) => {
-          // Provides the 404 content without redirect.
-          res.write(content_404);
-          res.end();
-        });
-      }
-    }
-  });
+  config.addFilter('dateDisplay', dateDisplayFilter);
+  config.addFilter('uniqueWords', uniqueWordsFilter);
+  config.addFilter('readingTime', readingTimeFilter);
+  config.addPlugin(syntaxHighlight);
 
   return {
-    templateFormats: [
-      "md",
-      "njk",
-      "html",
-      "liquid"
-    ],
-
-    // If your site lives in a different subdirectory, change this.
-    // Leading or trailing slashes are all normalized away, so don’t worry about it.
-    // If you don’t have a subdirectory, use "" or "/" (they do the same thing)
-    // This is only used for URLs (it does not affect your file structure)
-    pathPrefix: "/",
-
-    markdownTemplateEngine: "liquid",
-    htmlTemplateEngine: "njk",
-    dataTemplateEngine: "njk",
-    passthroughFileCopy: true,
     dir: {
-      input: ".",
-      includes: "_includes",
-      data: "_data",
-      output: "_site"
-    }
+      input: 'src',
+      output: 'dist',
+    },
   };
 };
