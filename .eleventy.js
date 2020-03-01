@@ -2,6 +2,7 @@ const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const { DateTime } = require('luxon');
 const { removeStopwords } = require('stopword');
 const htmlToPlaintext = require('html2plaintext');
+const lazyImagesPlugin = require('eleventy-plugin-lazyimages');
 
 const dateDisplayFilter = (dateObj, format = 'LLL d, y') =>
   DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat(format);
@@ -32,6 +33,18 @@ module.exports = (config) => {
   config.addFilter('uniqueWords', uniqueWordsFilter);
   config.addFilter('readingTime', readingTimeFilter);
   config.addPlugin(syntaxHighlight);
+
+  config.addPlugin(lazyImagesPlugin, {
+    imgSelector: '#main-content img', // custom image selector
+    cacheFile: '', // don't cache results to a file
+    transformImgPath: (src) => {
+      if (src.startsWith('/') && !src.startsWith('//')) {
+        return `./src${src}`;
+      }
+
+      return src;
+    },
+  });
 
   return {
     dir: {
