@@ -100,7 +100,7 @@ html {
   --contrast: #4ab19d;
   --contrast-dark: #1a816d;
   --contrast-light: #8cead8;
-  --container-width: 70ch;
+  --container-width: 45rem;
   --horizontal-inset: 1rem;
   --vertical-inset: 7rem;
   --strong-letter-spacing: 0.025em;
@@ -140,7 +140,7 @@ html {
 body {
   overflow-y: scroll; /* prevent page jumping around */
 
-  @media (min-width: 120ch) {
+  @media (min-width: 90rem) {
     min-height: 100vh;
     display: grid;
     grid-template-columns: minmax(0, 3fr) minmax(0, 6fr);
@@ -214,7 +214,7 @@ h3 {
   margin: 0 auto;
   animation: transitionIn 0.5s ease forwards;
 
-  @media (min-width: 120ch) {
+  @media (min-width: 90rem) {
     margin-left: 0;
   }
 }
@@ -228,7 +228,7 @@ header {
   text-align: center;
   padding: 2rem 0;
 
-  @media (min-width: 120ch) {
+  @media (min-width: 90rem) {
     text-align: right;
     padding-top: var(--vertical-inset);
   }
@@ -249,7 +249,7 @@ main {
   color: var(--base);
   padding: 3rem 0;
 
-  @media (min-width: 120ch) {
+  @media (min-width: 90rem) {
     padding: var(--vertical-inset) 0;
   }
 
@@ -292,7 +292,7 @@ footer {
   padding: 2rem 0;
   text-align: center;
 
-  @media (min-width: 120ch) {
+  @media (min-width: 90rem) {
     text-align: right;
     padding-bottom: var(--vertical-inset);
   }
@@ -312,7 +312,7 @@ header {
     font-weight: 900;
     text-transform: lowercase;
 
-    @media (min-width: 120ch) {
+    @media (min-width: 90rem) {
       margin-right: 0;
     }
 
@@ -325,7 +325,7 @@ header {
       border: 0.5rem solid var(--light);
       border-radius: 50%;
 
-      @media (min-width: 120ch) {
+      @media (min-width: 90rem) {
         margin-right: -0.4rem;
       }
     }
@@ -358,7 +358,7 @@ footer {
       text-decoration: underline;
     }
 
-    @media (min-width: 120ch) {
+    @media (min-width: 90rem) {
       &:first-child {
         margin-left: 0;
       }
@@ -369,12 +369,13 @@ footer {
 .texture {
   transition: top 0.1s linear;
   position: fixed;
-  top: calc(-50.0% * var(--scroll, 0));
+  top: 0;
   left: 0;
   width: 100%;
   height: 150%;
   z-index: 1;
   pointer-events: none;
+  transform: translateY(calc(-50% * var(--scroll)));
 }
 
 .metadata {
@@ -457,7 +458,7 @@ kbd {
   vertical-align: text-bottom;
 }
 
-.tag {
+.tag:not(.token) {
   font-size: 0.65em;
   display: inline-block;
   background: var(--base-light);
