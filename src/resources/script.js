@@ -107,14 +107,27 @@ const applyPageTexture = () => {
   document.body.innerHTML += svg;
 };
 
+const throttle = (callback, wait) => {
+  let time = Date.now();
+
+  return () => {
+    if ((time + wait - Date.now()) < 0) {
+      callback();
+      time = Date.now();
+    }
+  };
+};
+
 const handleParallax = () => {
   document.documentElement.style.setProperty('--scroll', 0);
 
-  window.addEventListener('scroll', () => {
+  const setScrollVariable = () => {
     const scrollDistance = document.body.scrollHeight - document.documentElement.clientHeight;
     const scrollValue = window.pageYOffset / Math.abs(scrollDistance);
     document.documentElement.style.setProperty('--scroll', scrollValue);
-  });
+  };
+
+  window.addEventListener('scroll', throttle(setScrollVariable, 20));
 };
 
 document.fonts.ready.then(() => {
