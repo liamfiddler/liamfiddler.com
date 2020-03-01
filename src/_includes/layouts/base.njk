@@ -18,8 +18,8 @@
           <span aria-hidden="true">Liam Fiddler</span>
         </a>
         <nav>
+          <a href="/projects" {{ 'aria-current=page' if page.url == '/projects/' | safe }}>Side Projects</a>
           <a href="/posts" {{ 'aria-current=page' if page.url == '/posts/' | safe }}>Posts</a>
-          <a href="/projects" {{ 'aria-current=page' if page.url == '/projects/' | safe }}>Projects</a>
           <a href="/search" {{ 'aria-current=page' if page.url == '/search/' | safe }}>
             <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
               <g transform="translate(0 -1004.36)" fill="none">
