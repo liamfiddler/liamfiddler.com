@@ -102,6 +102,7 @@ html {
   --contrast: #4ab19d;
   --contrast-dark: #1a816d;
   --contrast-light: #8cead8;
+  --page-bg: #e1e4e7;
   --container-width: 45rem;
   --horizontal-inset: 1rem;
   --vertical-inset: 7rem;
@@ -110,7 +111,7 @@ html {
   font: 400 111.87% / 1.55 WorkSans, Verdana, sans-serif;
   letter-spacing: -0.1px;
   word-spacing: -0.4px;
-  background: var(--primary);
+  background: var(--page-bg);
   color: var(--contrast);
 
   &.webfonts-ready {
@@ -235,7 +236,7 @@ header {
     padding-top: var(--vertical-inset);
   }
 
-  svg {
+  nav svg {
     width: 1.5rem;
     height: 1.5rem;
     display: inline-block;
@@ -307,36 +308,26 @@ footer {
   }
 }
 
-header {
-  .title {
-    display: block;
-    font-size: 2.2rem;
-    font-weight: 900;
-    text-transform: lowercase;
+.title,
+.title:visited {
+  display: inline-block;
+  width: 12rem;
 
-    @media (min-width: 90rem) {
-      margin-right: 0;
-    }
+  @media (min-width: 90rem) {
+    margin-right: 0;
+  }
 
-    img {
-      display: inline-block;
-      clear: both;
-      background: var(--light);
-      width: 7rem;
-      height: 7rem;
-      border: 0.5rem solid var(--light);
-      border-radius: 50%;
+  circle {
+    fill: var(--primary);
+    transition: fill 0.4s ease;
+  }
 
-      @media (min-width: 90rem) {
-        margin-right: -0.4rem;
-      }
-    }
+  &:hover,
+  &[aria-current="page"] {
+    color: var(--dark);
 
-    span {
-      display: block;
-      line-height: 0.9em;
-      margin-bottom: 0.25em;
-      letter-spacing: var(--strong-letter-spacing);
+    circle {
+      fill: var(--contrast-light);
     }
   }
 }
@@ -453,8 +444,9 @@ kbd {
   font-size: 0.85em;
   display: inline-block;
   border: 1px solid var(--base-light);
+  border-bottom-width: 2px;
   border-radius: 0.25em;
-  padding: 0.3em 0.8em;
+  padding: 0.2em 0.5em;
   line-height: 1;
   text-transform: uppercase;
   vertical-align: text-bottom;
