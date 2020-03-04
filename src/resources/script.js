@@ -92,7 +92,7 @@ const applyPageTexture = () => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
-      class="texture"
+      id="texture"
       viewbox="0 0 ${w} ${h}"
       fill="rgba(0, 0, 0, 0.1)"
     >
@@ -119,15 +119,16 @@ const throttle = (callback, wait) => {
 };
 
 const handleParallax = () => {
-  document.documentElement.style.setProperty('--scroll', 0);
+  const texture = document.getElementById('texture');
 
-  const setScrollVariable = () => {
+  const textureParallax = () => {
     const scrollDistance = document.body.scrollHeight - document.documentElement.clientHeight;
     const scrollValue = window.pageYOffset / Math.abs(scrollDistance);
-    document.documentElement.style.setProperty('--scroll', scrollValue);
+    texture.style.transform = `translateY(${-50 * scrollValue}%)`;
   };
 
-  window.addEventListener('scroll', throttle(setScrollVariable, 20));
+  textureParallax();
+  window.addEventListener('scroll', throttle(textureParallax, 20));
 };
 
 const addConsoleMessage = () => {
