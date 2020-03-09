@@ -497,6 +497,42 @@ kbd {
   }
 }
 
+.projects {
+  li {
+    width: 85%;
+    margin: 3rem 0;
+
+    &:nth-child(even) {
+      margin-left: 15%;
+    }
+  }
+
+  img {
+    margin-bottom: 1rem;
+  }
+
+  @media screen and (min-width: 45rem) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    li {
+      width: calc(50% - 2rem);
+      margin: 2rem 0 1rem;
+      padding-bottom: 1rem;
+
+      &:nth-child(even) {
+        margin-left: 0;
+        padding-top: 1rem;
+      }
+
+      &:nth-child(odd) {
+        padding-top: 3.5rem;
+      }
+    }
+  }
+}
+
 /*
 Name: Base16 Chalk Dark
 Author: Chris Kempson (http://chriskempson.com)

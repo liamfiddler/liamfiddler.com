@@ -55,6 +55,21 @@ const markActiveNavLink = () => {
   });
 };
 
+const handleNativeLazyLoad = () => {
+  if ('loading' in HTMLImageElement.prototype) {
+    const images = document.querySelectorAll('img[data-src]');
+    const numImages = images.length;
+
+    if (numImages > 0) {
+      for (let i = 0; i < numImages; i++) {
+        images[i].src = images[i].dataset.src;
+      }
+    }
+
+    return;
+  }
+};
+
 const initPageTransitions = async () => {
   await Promise.all([
     loadScript('/resources/libs/swup.min.js'),
@@ -71,6 +86,7 @@ const initPageTransitions = async () => {
     scrollToTop();
     markActiveNavLink();
     swup.options.containers.forEach(findAndLoadCustomElements);
+    handleNativeLazyLoad();
   });
 };
 

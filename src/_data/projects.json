@@ -2,36 +2,43 @@
   {
     "url": "https://github.com/liamfiddler/eleventy-plugin-lazyimages",
     "title": "Lazy Images (11ty plugin)",
-    "description": "Add progressive lazy loading to images on your 11ty website."
+    "description": "Add progressive lazy loading to images on your 11ty website.",
+    "thumbnail": "/resources/project-assets/eleventy-plugin-lazyimages.png"
   },
   {
     "url": "https://github.com/MentallyFriendly/govhack-2019",
     "title": "GreenRoutes prototype (GovHack 2019)",
-    "description": "Visualise routes through the city to avoid urban heat & reduce congestion."
+    "description": "Visualise routes through the city to avoid urban heat & reduce congestion.",
+    "thumbnail": "/resources/project-assets/greenroutes.png"
   },
   {
     "url": "https://github.com/MentallyFriendly/friendly-planning-poker",
     "title": "Agile Planning Poker Cards",
-    "description": "Mentally Friendly's Agile Planning Poker card webapp."
+    "description": "Mentally Friendly's Agile Planning Poker card webapp.",
+    "thumbnail": "/resources/project-assets/planning-poker.png"
   },
   {
     "url": "https://hub.docker.com/r/liamfiddler/docker-laravel",
     "title": "Laravel Docker container",
-    "description": "An Ubuntu 16.04 + Nginx 1.11 + PHP 7.0 + Redis container for Laravel, Lumen, & PHP web applications."
+    "description": "An Ubuntu 16.04 + Nginx 1.11 + PHP 7.0 + Redis container for Laravel, Lumen, & PHP web applications.",
+    "thumbnail": "/resources/project-assets/eleventy-plugin-lazyimages.png"
   },
   {
     "url": "https://github.com/liamfiddler/phpdoc-to-githubwiki",
     "title": "PHPDoc to GitHub Wiki",
-    "description": "Bash script to convert PHPDoc comments in a GitHub repo to a GitHub Wiki."
+    "description": "Bash script to convert PHPDoc comments in a GitHub repo to a GitHub Wiki.",
+    "thumbnail": "/resources/project-assets/eleventy-plugin-lazyimages.png"
   },
   {
     "url": "/resources/interpolated-identities.pdf",
     "title": "Interpolated Identities: Creating a Complex Experiential Commitment to the Virtual",
-    "description": "A thesis about virtual worlds, gamification, & the role of designers and developers in creating hyperreality."
+    "description": "A thesis about virtual worlds, gamification, & the role of designers and developers in creating hyperreality.",
+    "thumbnail": "/resources/project-assets/interpolated-identities.jpg"
   },
   {
     "url": "/resources/tactilis-mensa.pdf",
     "title": "Tactilis Mensa",
-    "description": "A prototype for an alternative art collection browsing system. I built a table-sized touch screen device (using a projector, a webcam, a low-power PC, lots of MDF, and infrared light), then designed a prototype interface for navigating the UoW Art Collection. This work was on display as part of the Digital Natives art exhibition."
+    "description": "A prototype for an alternative art collection browsing system. I built a table-sized touch screen device (using a projector, a webcam, a low-power PC, lots of MDF, and infrared light), then designed a prototype interface for navigating the UoW Art Collection. This work was on display as part of the Digital Natives art exhibition.",
+    "thumbnail": "/resources/project-assets/tactilis-mensa.jpg"
   }
 ]

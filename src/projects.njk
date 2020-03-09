@@ -8,6 +8,7 @@ layout: layouts/page.njk
   <ul class="projects">
     {%- for project in projects -%}
       <li>
+        <img src="{{ project.thumbnail }}" />
         <a href="{{ project.url }}">
           {{ project.title }}
         </a><br />

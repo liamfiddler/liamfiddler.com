@@ -26,8 +26,9 @@ layout: layouts/page.njk
       <h2>Side projects</h2>
       <ul class="projects">
         {%- for project in projects -%}
-          {% if loop.index0 < 3 %}
+          {% if loop.index0 < 4 %}
             <li>
+              <img src="{{ project.thumbnail }}" />
               <a href="{{ project.url }}">
                 {{ project.title }}
               </a><br />
