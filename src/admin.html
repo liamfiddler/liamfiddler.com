@@ -17,12 +17,15 @@
 
 			CMS.init({
 				config: {
-					local_backend: true,
+					site_url: 'https://liamfiddler.com',
+					display_url: 'https://liamfiddler.com',
+					// local_backend: true,
 					backend: {
 						name: 'github',
-						repo: 'liamfiddler/decap-cms-test',
+						repo: 'liamfiddler/liamfiddler.com',
+						branch: 'v4',
 					},
-					media_folder: 'public/uploads',
+					media_folder: 'src/public/uploads',
 					collections: [
 						{
 							name: 'posts',
