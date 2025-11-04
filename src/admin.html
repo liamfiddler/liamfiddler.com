@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>CMS</title>
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/@staticcms/app@^4.0.0/dist/main.css"
+		/>
+	</head>
+	<body>
+		<script src="https://unpkg.com/@staticcms/app@^4.0.0/dist/static-cms-app.js"></script>
+		<script>
+			const ceNames = '{% COMPONENT_TAGS %}'.split(',');
+			const ceNamesCms = '{% COMPONENT_TAGS_CMS %}'.split(',');
+
+			CMS.init({
+				config: {
+					local_backend: true,
+					backend: {
+						name: 'github',
+						repo: 'liamfiddler/decap-cms-test',
+					},
+					media_folder: 'public/uploads',
+					collections: [
+						{
+							name: 'posts',
+							label: 'Posts',
+							folder: 'content',
+							create: true,
+							fields: [
+								{ label: 'Title', name: 'title', widget: 'string' },
+								{ label: 'Publish Date', name: 'date', widget: 'datetime' },
+								// { label: 'Featured Image', name: 'thumbnail', widget: 'image' },
+								{ label: 'Description', name: 'description', widget: 'string' },
+								{ label: 'Body', name: 'body', widget: 'markdown' },
+								{ label: 'Read Next', name: 'read-next', widget: 'relation', collection: 'posts', value_field: 'fields.slug', search_fields: ['title'], multiple: true },
+							],
+						},
+					],
+				},
+			});
+
+			CMS.registerPreviewStyle('/style/main.css');
+
+			CMS.registerPreviewTemplate(
+				'posts',
+				({ widgetFor, entry, document: previewDoc }) => {
+					useEffect(() => {
+						for (const ceName of ceNames) {
+							const filename = ceNamesCms.includes(ceName) ? ceName : `_${ceName}`;
+							const script = previewDoc.createElement('script');
+							script.src = `{% COMPONENT_OUTPUT_DIR %}/${filename}.js`;
+							script.type = 'module';
+							previewDoc.body.appendChild(script);
+						}
+					}, []);
+
+					return h(
+						'div',
+						{},
+						h('site-header', {}),
+						h('h1', {}, entry.data.title),
+						h('div', {}, widgetFor('body')),
+						h('site-footer', {})
+					);
+				}
+			);
+
+			for (const ceName of ceNamesCms) {
+				CMS.registerShortcode(ceName, {
+					label: ceName,
+					openTag: '[',
+					closeTag: ']',
+					separator: '|',
+					toProps: () => ({}),
+					toArgs: () => [],
+					control: () =>
+						h(
+							'div',
+							{ style: { background: 'silver', padding: '1em' } },
+							ceName
+						),
+					preview: () => h(ceName, {}, ''),
+				});
+			}
+		</script>
+	</body>
+</html>

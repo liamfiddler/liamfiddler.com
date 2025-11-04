@@ -1,0 +1,15 @@
+---
+title: Search
+description: Search this site.
+layout: base.11ty.cjs
+---
+<section class="contain">
+  <search-form>
+    <h1 class="grunge"><split-text>Search</split-text></h1>
+    <form action="https://google.com.au/search" method="get" id="search-form">
+      <input type="hidden" name="q" id="q" value="site:https://liamfiddler.com">
+      <input type="text" name="q" id="search-value" autofocus>
+      <button type="submit" class="submit">Search</button>
+    </form>
+  </search-form>
+</section>

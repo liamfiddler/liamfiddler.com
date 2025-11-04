@@ -1,0 +1,169 @@
+---
+title: Liam's Global CSS File
+pubdate: 2025-07-16
+tags: ['tip']
+theme: orange
+---
+
+I work at a company where we build new products and services; from the first seed of an idea to the first release live in market.
+
+This means I'm typically working in a greenfield/new codebase with no pre-existing design system or component library.
+
+I work in a team so for standardisation I'll typically use Tailwind and gain all the benefits of a well documented system. But if I'm working on something small and easy to reason about, or something that only I will use, one of the first things I always reach for is a CSS reset.
+
+Browsers have their own built-in stylesheets, which can lead to unexpected differences in how elements like headings, paragraphs, and lists are displayed across different platforms. By using a CSS reset, I can start with a clean slate, ensuring that my styles are applied consistently and predictably, regardless of the user's browser or device. This makes it much easier to build layouts and components that look and behave the way I intend.
+
+However, _my_ reset isn't just about resetting styles, it's about setting sensible defaults that I know I'll use on every project. This means I also include additional CSS features like View Transitions.
+
+## Liam's Global CSS File
+
+The bulk of this CSS comes from [Andy Bell's excellent (More) Modern CSS Reset](https://piccalil.li/blog/a-more-modern-css-reset/). If you're considering making your own reset I strongly recommend using it as a basis.
+
+```css
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+	-moz-text-size-adjust: none;
+	-webkit-text-size-adjust: none;
+	text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
+	margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+	list-style: none;
+}
+
+/* Set core body defaults */
+body {
+	min-height: 100dvh;
+	scroll-behavior: smooth;
+	line-height: 1.4;
+
+	/* Always leave space for a scrollbar, avoid layout shifts when navigating between different length pages */
+	scrollbar-gutter: stable;
+
+	/* Dynamic font size between 14px and 18px */
+	font-size: clamp(14px, 11.793px + 0.69vw, 18px);
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+input,
+label {
+	line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+	text-decoration-skip-ink: auto;
+	color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+	max-width: 100%;
+	display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+	font-family: inherit;
+	font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+	min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+	scroll-margin-block: 5ex;
+}
+
+/* Opt-in to View Transitions */
+@view-transition {
+	navigation: auto;
+}
+
+/* Set the default transition names */
+:root {
+	view-transition-name: none;
+}
+body {
+	view-transition-name: page;
+}
+
+/* Specify how long the page view transition should run */
+::view-transition-group(page) {
+	animation-duration: 0.4s;
+}
+@media (prefers-reduced-motion: reduce) {
+	::view-transition-group(page) {
+		animation-duration: 0s;
+	}
+}
+
+/* Hide stuff from view, but not from screen readers */
+.visually-hidden {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: auto;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	white-space: nowrap;
+}
+```
+
+### Change log
+
+- **September 2025**
+	- Replaced `overflow-x: hidden; overflow-y: scroll;` with `scrollbar-gutter: stable;`
+- **July 2025**
+	- Initial version

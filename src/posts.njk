@@ -1,0 +1,23 @@
+---
+title: Posts
+description: Posts
+layout: base.11ty.cjs
+---
+<section>
+  <h1 class="grunge"><split-text>Posts</split-text></h1>
+  <ol class="posts" role="list">
+    {%- for page in collections.postsByPubDate -%}
+      <li>
+        <a href="{{ page.url }}">
+          {{ page.data.title }}
+        </a> 
+        <span class="metadata">
+          <time datetime="{{ page.data.pubdate | dateDisplay('y-MM-dd') }}">
+            {{ page.data.pubdate | dateDisplay("LLLL d, y") }}
+          </time> &mdash;
+          {{ page.templateContent | readingTime }} minute read
+        </span>
+      </li>
+    {%- endfor -%}
+  </ol>
+</section>

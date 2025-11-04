@@ -1,0 +1,37 @@
+---
+title: Copy a Sanity dataset (free)
+pubdate: 2024-05-17
+tags: ['tip']
+theme: pink
+variant: spin3d
+---
+
+The Sanity CLI has an option to copy a dataset: `sanity dataset copy`.
+
+But when you run it you might find that Sanity doesn't let you copy, clone, or duplicate datasets unless you're subscribed on an fairly expensive plan.
+
+However you can bypass this limitation and do it on any plan, if you're willing to run a few commands—the trick is to export the dataset and import it again!
+
+First make your **sanity.cli.js** file:
+
+```js
+// sanity.cli.js
+import { defineCliConfig } from "sanity/cli";
+
+export default defineCliConfig({
+  api: {
+    projectId: "<your-project-id>",
+  }
+});
+```
+
+Then run these commands in the Terminal...
+
+```bash
+# Assuming your dataset is called "production" and you
+# want to clone it to a new dataset called "development"...
+npx -y sanity@latest login
+npx -y sanity@latest dataset export production production.tar.gz
+npx -y sanity@latest dataset create development
+npx -y sanity@latest dataset import production.tar.gz development
+```
