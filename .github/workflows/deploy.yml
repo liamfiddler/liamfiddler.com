@@ -29,9 +29,6 @@ jobs:
       - name: Build site 🏗️
         run: npm run build
 
-      - name: Create CNAME file 🌐
-        run: echo "liamfiddler.com" > out/CNAME
-
       - name: Deploy to GitHub Pages 🚀
         uses: peaceiris/actions-gh-pages@v4
         with:
